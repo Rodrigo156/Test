@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    
+     <ui:composition template="/templates/template.xhtml">
+     	<ui:define name="topbar">
+				<p:tabView  activeIndex="0"  >
+					<p:tab title="Escolher Passagem" >
+						
+					</p:tab>
+					<p:tab title="Selecionar Acento" >
+					</p:tab>
+					<p:tab title="Comprar">
+					</p:tab>
+				</p:tabView>
+     	</ui:define>
+     	
+     	<ui:define name="body">
+     		<p:layout  style="min-width:640px;min-height:640px;" > 
+     			
+     			<p:layoutUnit position="east" size="900" style="border:0px;">
+     					<br />
+						<h:form prependId="false" id="form_1"> 
+     					<p:dataTable name="listarPassagemIda" id="tabela1" var="passagemIda" rowKey="#{passagemIda.idPassagem}"  value="#{cadastroBean.mediumPassagemModel}"  selection="#{cadastroBean.selectedPassagem}"  scrollable="true"  scrollHeight="200"  emptyMessage="nenhum registro encontrado" >
+			     				<f:facet name="header">
+			     					Passagens de Ida
+								</f:facet>
+			     				
+			     				<p:column selectionMode="single" width="40"  >
+			     					<h:outputText value="#{passagemIda.idPassagem}"/>
+			     				</p:column>
+			     				<p:column headerText="Origem" style="text-align:center;" >
+			     					<h:outputText value="#{passagemIda.origemPassagem}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Destino" style="text-align:center;">
+			     						<h:outputText value="#{passagemIda.destinoPassagem}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Empresa" style="text-align:center;">
+			     					<h:outputText value="#{passagemIda.empresa}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Preço da Passagem" style="text-align:center;">
+			     					<h:outputText value="#{passagemIda.precoPassagem}"/>
+			     				</p:column>
+	     					</p:dataTable >	
+	     						<br />
+	     						<br />
+	     					<p:dataTable  name="listarPassagemIda" id="tabela2" var="passagemVolta" rowKey="#{passagemVolta.idPassagem}"  value="#{cadastroBean.mediumPassagemModel}"  selection="#{cadastroBean.selectedPassagemVolta}"  scrollable="true"  scrollHeight="200"  emptyMessage="nenhum registro encontrado" >
+			     				<f:facet name="header">
+			     					Passagens de Volta
+								</f:facet>
+			     				
+			     				<p:column selectionMode="single" width="40"  >
+			     					<h:outputText value="#{passagemVolta.idPassagem}"/>
+			     				</p:column>
+			     				<p:column headerText="Origem" style="text-align:center;" >
+			     					<h:outputText value="#{passagemVolta.origemPassagem}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Destino" style="text-align:center;">
+			     						<h:outputText value="#{passagemVolta.destinoPassagem}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Empresa" style="text-align:center;">
+			     					<h:outputText value="#{passagemVolta.empresa}"/>
+			     				</p:column>
+			     				
+			     				<p:column headerText="Preço da Passagem" style="text-align:center;">
+			     					<h:outputText value="#{passagemVolta.precoPassagem}"/>
+			     				</p:column>
+	     						</p:dataTable >	
+	     						<br />
+	     						<br />
+	     						<p:commandButton onclick="return validaForm();"   action="#{cadastroBean.obterPassagemSelecionada}"  styleClass="ui-priority-primary" value="Proximo"  icon="ui-icon-search" style="margin-button:0;text-align:right;"/>
+     							</h:form>
+     			</p:layoutUnit>
+     			
+	     		<p:layoutUnit position="center" style="padding-left:1%;border:0px" styleClass="semBorda"  >
+	     			
+	     				<p:panelGrid style="margin-top:20px"  > 
+	     					<f:facet name="header">
+	     						<p:row>
+	     							<p:column colspan="4" >
+	     							<br />
+	     							Buscar Passagens 
+	     							<br />
+	     							<br />
+	     							</p:column>
+	     						</p:row>
+	     					</f:facet>
+	     					<p:row>
+	     						<p:column colspan="4">
+			     					<p:selectOneRadio id="options" value="1">  
+							            <f:selectItem itemLabel="Ida e Volta" itemValue="1"   />  
+							            <f:selectItem itemLabel="Somente Ida" itemValue="2"  />  
+			        				</p:selectOneRadio>  
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Origem" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;"  >
+											<f:selectItem itemLabel="Selecione um Estado" itemValue="" /> 
+											<f:selectItems value="#{cadastroBean.listarEstado}" var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado}"/>
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Destino" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;" >
+											<f:selectItem itemLabel="Selecione um Estado" itemValue="" /> 
+											<f:selectItems value="#{cadastroBean.listarEstado}" var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado}"/>
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Data Ida" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:outputLabel value="Data Volta" id="dataVolta" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:calendar size="10" locale="pt"  pattern="dd/MM/yyyy" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:calendar  size="10" locale="pt" pattern="dd/MM/yyyy" id="calendarVolta" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column>
+	     							<p:spacer></p:spacer>
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="2">
+	     							   <p:commandButton action="#{cadastroBean.obterPassagemSelecionada}" value="Pesquisar" styleClass="ui-priority-primary"  icon="ui-icon-check" style="margin:0;align:center"/>
+	     						</p:column>
+	     					</p:row>
+	     				</p:panelGrid>
+	     				<br />
+	     				</p:layoutUnit>
+     			</p:layout>
+     	</ui:define>
+     </ui:composition>
+  
+</html>

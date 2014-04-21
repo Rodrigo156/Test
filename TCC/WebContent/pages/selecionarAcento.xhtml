@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    
+     <ui:composition template="/templates/templateSelecionarAcento.xhtml">
+     	<ui:define name="topbarMenu">
+				<p:tabView  activeIndex="1"  >
+					<p:tab title="Escolher Passagem" >
+						
+					</p:tab>
+					<p:tab title="Selecionar Acento" >
+					</p:tab>
+					<p:tab title="Comprar">
+					</p:tab>
+				</p:tabView>
+     	</ui:define>
+     	
+     	<ui:define name="bodyAcento">
+     		<p:layout  style="min-width:640px;min-height:640px;" > 
+     			<p:layoutUnit position="east" size="900" style="border:0px;">
+     				<table id="tabela" border="1">
+						<tr id="fila1">
+						    <td rowspan="5" width="12%" class="frenteOnibus"></td>
+							<td>01</td>
+							<td>02</td>
+							<td>03</td>
+							<td>04</td>
+							<td>05</td>
+							<td>06</td>
+							<td>07</td>
+							<td>08</td>
+							<td>09</td>
+							<td>10</td>
+						</tr>
+						<tr id="fila2">
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+						</tr>
+						<tr><td colspan="10" height="20%" class="linha"></td></tr>
+						<tr id="fila3">
+							<td>21</td>
+							<td>22</td>
+							<td>23</td>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+							<td>29</td>
+							<td>30</td>
+						</tr>
+						<tr id="fila4">
+							<td>31</td>
+							<td>32</td>
+							<td>33</td>
+							<td>34</td>
+							<td>35</td>
+							<td>36</td>
+							<td>37</td>
+							<td>38</td>
+							<td>39</td>
+							<td>40</td>
+						</tr>
+					</table>
+     			</p:layoutUnit>
+     			
+	     		<p:layoutUnit position="center" style="padding-left:1%;border:0px" styleClass="semBorda"  >
+	     			
+	     				<p:panelGrid style="margin-top:20px"  > 
+	     					<f:facet name="header">
+	     						<p:row>
+	     							<p:column colspan="4" >
+	     							<br />
+	     							Buscar Passagens 
+	     							<br />
+	     							<br />
+	     							</p:column>
+	     						</p:row>
+	     					</f:facet>
+	     					<p:row>
+	     						<p:column colspan="4">
+			     					<p:selectOneRadio id="options" value="1">  
+							            <f:selectItem itemLabel="Ida e Volta" itemValue="1"   />  
+							            <f:selectItem itemLabel="Somente Ida" itemValue="2"  />  
+			        				</p:selectOneRadio>  
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Origem" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;"  >
+											<f:selectItem itemLabel="Selecione um Estado" itemValue="" /> 
+											<f:selectItems value="#{cadastroBean.listarEstado}" var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado}"/>
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Destino" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;" >
+											<f:selectItem itemLabel="Selecione um Estado" itemValue="" /> 
+											<f:selectItems value="#{cadastroBean.listarEstado}" var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado}"/>
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Data Ida" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:outputLabel value="Data Volta" id="dataVolta" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:calendar size="10" locale="pt"  pattern="dd/MM/yyyy" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:calendar  size="10" locale="pt" pattern="dd/MM/yyyy" id="calendarVolta" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column>
+	     							<p:spacer></p:spacer>
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="2">
+	     							   <p:commandButton action="#{cadastroBean.obterPassagemSelecionada}" value="Pesquisar" styleClass="ui-priority-primary"  icon="ui-icon-check" style="margin:0;align:center"/>
+	     						</p:column>
+	     					</p:row>
+	     				</p:panelGrid>
+	     				<br />
+	     				</p:layoutUnit>
+     			</p:layout>
+     	</ui:define>
+     </ui:composition>
+  
+</html>

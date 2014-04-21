@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title><ui:insert name="titulo">TCC</ui:insert></title>
+<style type="text/css">
+		div{
+		border:0px solid black;
+		}
+		#container{
+		width:1300px;
+		margin:0 auto;
+		}
+		#logotipo{
+		height:130px;
+		background-color: gray;
+		}
+		.body{
+		height:1200px;
+		}
+		#footer{
+		height:55px;
+		background-color: gray;
+		
+		}
+		#topbar{
+		background-color:black;
+		height:70px;
+		}
+		.semBorda tr, .semBorda td {  
+   		 border: none ;  
+		}  
+		.ui-widget .ui-widget {
+   			 font-size: 17px;
+		}
+		#fila1  > td{
+			text-align:center;
+			padding:13px;
+			background-color:#4169E1;
+		}
+		#fila2  > td{
+			text-align:center;
+			padding:13px;
+			background-color:#4169E1;
+		}
+		#fila3  > td{
+			text-align:center;
+			padding:13px;
+			background-color:#4169E1;
+		}
+		#fila4  > td{
+			text-align:center;
+			padding:13px;
+			background-color:#4169E1;
+		}
+		.linha{
+			padding:20px 30px 40px 20px;
+		}
+		table{
+			 border-spacing:5px;
+			 border-collapse: separate;
+		}
+</style>
+<h:outputScript library="js" name="poutronaOnibus.js" />
+<!--  <script type="text/javascript"  src="resources/js/poutronaOnibus.js"></script> -->
+</h:head>
+<h:body>
+   	<div id="container">
+		
+		<div>
+			<ui:insert name="topbarMenu"></ui:insert>
+		</div>
+		
+		<div class="body">
+				<ui:insert name="bodyAcento"></ui:insert>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<ui:insert name="footerAcento"></ui:insert>
+	</div>
+</h:body>
+</html>

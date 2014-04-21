@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+     <ui:composition template="/templates/interno.xhtml">
+     	
+     	<ui:define name="logotipo">
+     		<h1 style="padding-top:4%" align="center">Passagens.com</h1>
+     	</ui:define>
+     	
+     	<ui:define name="menu">
+     		<h:form>
+				<p:menubar>
+					<p:menuitem value="Home" action="#{cadastroBean.teste}" />
+					<p:menuitem value="Contato" action="#{cadastroBean.teste}"/>
+					<p:menuitem value="Duvidas" action="#{cadastroBean.iniciar}"/>
+				</p:menubar>
+			</h:form>	
+     	</ui:define>
+     	
+     	<ui:define name="body">
+     		<p:layout  style="min-width:640px;min-height:640px;" > 
+     			<p:layoutUnit position="north" size="100" >
+     			</p:layoutUnit>
+     			
+     			<p:layoutUnit position="south" size="100">
+     			</p:layoutUnit>
+	     		
+	     		<p:layoutUnit position="east" size="750" style="border:0px;">
+	     				<p:dataTable id="withRadioButton" var="pessoas" rowKey="#{pessoas.id}"  rows="6"  paginator="true" value="#{cadastroBean.listarPessoas}"   emptyMessage="nenhum registro encontrado" >
+		     				<f:facet name="header">
+		     						Promoções
+		     				</f:facet>
+		     				<p:column selectionMode="single" />
+		     				
+		     				<p:column headerText="Numero">
+		     					#{pessoas.id}
+		     				</p:column>
+		     				<p:column headerText="Lugar">
+		     					#{pessoas.nome}
+		     				</p:column>
+		     				<p:column headerText="Preço">
+		     						#{pessoas.email}
+		     				</p:column>
+		     				<p:column headerText="Disponivel">
+		     					#{pessoas.idade}
+		     				</p:column>
+
+		     				
+		     			</p:dataTable >
+	     			</p:layoutUnit>
+	     			
+	     			<p:layoutUnit position="center" style="padding-left:1%;border:0px" styleClass="semBorda"  >
+	     				<p:panelGrid style="margin-top:20px"  > 
+	     					<f:facet name="header">
+	     						<p:row>
+	     							<p:column colspan="4">Buscar Passagens </p:column>
+	     						</p:row>
+	     					</f:facet>
+	     					<p:row>
+	     						<p:column colspan="4">
+			     					<p:selectOneRadio id="options">  
+							            <f:selectItem itemLabel="Ida e Volta" itemValue="1"  />  
+							            <f:selectItem itemLabel="Somente Volta" itemValue="2" />  
+			        				</p:selectOneRadio>  
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Origem" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;"  >
+											<f:selectItem itemLabel="Rio de Janeiro" itemValue="1"  />
+											<f:selectItem itemLabel="São Paulo" itemValue="2" />
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Destino" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+										<h:selectOneMenu  style="width:200px;"  >
+											<f:selectItem itemLabel="Rio de Janeiro" itemValue="1"  />
+											<f:selectItem itemLabel="São Paulo" itemValue="2" />
+										</h:selectOneMenu>
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:outputLabel value="Data Ida" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:outputLabel value="Data Volta" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="1">
+	     							<p:calendar size="10" locale="pt"  pattern="dd/MM/yyyy" />
+	     						</p:column>		
+	     						<p:column colspan="1">	
+	     							<p:calendar  size="10" locale="pt" pattern="dd/MM/yyyy" />
+								</p:column>	
+	     					</p:row>
+	     					<p:row>
+	     						<p:column>
+	     							<p:spacer></p:spacer>
+	     						</p:column>
+	     					</p:row>
+	     					<p:row>
+	     						<p:column colspan="2">
+	     							   <p:commandButton action="#{cadastroBean.listarPassagens}" value="Pesquisar" styleClass="ui-priority-primary"  icon="ui-icon-check" style="margin:0;align:center" />
+	     						</p:column>
+	     					</p:row>
+	     				</p:panelGrid>
+		     		
+		     		</p:layoutUnit>
+     		    </p:layout>	
+     	</ui:define>
+     
+     </ui:composition>
+  
+</html>

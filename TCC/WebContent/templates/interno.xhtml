@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title><ui:insert name="titulo">TCC</ui:insert></title>
+ 	
+<style type="text/css">
+		div{
+		border:0px solid black;
+		}
+		#container{
+		width:1300px;
+		margin:0 auto;
+		}
+		#logotipo{
+		height:130px;
+		background-color: gray;
+		}
+		.body{
+		height:900px;
+		}
+		#footer{
+		height:55px;
+		background-color: gray;
+		
+		}
+		#menu{
+		background-color:navy;
+		height:40px;
+		}
+		.semBorda tr, .semBorda td {  
+   		 border: none ;  
+		}  
+		.ui-widget .ui-widget {
+   			 font-size: 15px;
+		}
+</style>
+
+<script type="text/javascript"  src="resources/js/util.js"></script>
+
+</h:head>
+<h:body>
+   	<div id="container">
+		
+		<div id="logotipo">
+			<ui:insert name="logotipo"></ui:insert>
+		</div>
+		
+		<div id="menu">
+			<ui:insert name="menu"></ui:insert>
+		</div>
+		
+		<div class="body">
+				<ui:insert name="body"></ui:insert>
+		</div>
+	</div>
+	
+	<div id="footer">
+		<ui:insert name="footer"></ui:insert>
+	</div>
+</h:body>
+</html>

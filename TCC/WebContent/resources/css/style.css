@@ -1,0 +1,59 @@
+
+div{
+		border:0px solid black;
+	}
+	#container{
+		width:1300px;
+		margin:0 auto;
+	}
+	#logotipo{
+		height:130px;
+		background-color: gray;
+	}
+	.body{
+	height:1200px;
+	}
+	#footer{
+		height:55px;
+		background-color: gray;
+				
+		}
+	#topbar{
+		background-color:black;
+		height:70px;
+		}
+	.semBorda tr, .semBorda td {  
+		    border: none ;  
+			}  
+	.ui-widget .ui-widget {
+		   	 font-size: 17px;
+	}				
+
+
+#fila1  > td{
+	text-align:center;
+	padding:15px;
+	background-color:#4169E1;
+}
+#fila2  > td{
+	text-align:center;
+	padding:15px;
+	background-color:#4169E1;
+}
+#fila3  > td{
+	text-align:center;
+	padding:15px;
+	background-color:#4169E1;
+}
+#fila4  > td{
+	text-align:center;
+	padding:15px;
+	background-color:#4169E1;
+}
+.linha{
+	padding:20px 30px 40px 20px;
+}
+table{
+	 border-spacing:5px;
+	 border-collapse: separate;
+}

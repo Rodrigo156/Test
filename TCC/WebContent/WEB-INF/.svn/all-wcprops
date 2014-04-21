@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/%20hibernate-jsf-spring/TCC/WebContent/WEB-INF
+END
+faces-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3/trunk/%20hibernate-jsf-spring/TCC/WebContent/WEB-INF/faces-config.xml
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/trunk/%20hibernate-jsf-spring/TCC/WebContent/WEB-INF/applicationContext.xml
+END
+.faces-config.xml.jsfdia
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/%20hibernate-jsf-spring/TCC/WebContent/WEB-INF/.faces-config.xml.jsfdia
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/%20hibernate-jsf-spring/TCC/WebContent/WEB-INF/web.xml
+END
